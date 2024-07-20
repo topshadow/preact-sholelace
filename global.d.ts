@@ -1,7 +1,7 @@
 // deno-lint-ignore-file no-empty-interface
 import type { VNode } from "preact";
 type Sizeable = { size?: "small" | "medium" | "large" };
-type Childrenable = { children?: unknown };
+type Childrenable = { children?: any };
 type ButtonProp = {
     variant?:
         | "default"
@@ -600,7 +600,7 @@ export interface SlQrCodeProp {
     /**The edge radius of each module. Must be between 0 and 0.5.		number	0 */
     radius?: number;
 }
-type QrCodeProp = SlQrCodeProp & Sizeable;
+type QrCodeProp = SlQrCodeProp & Sizeable&Childrenable;
 
 export interface SlRadioProp {
     /**The radio’s value. When selected, the radio group will receive this value.		 */
@@ -984,8 +984,8 @@ declare global {
             "sl-tag": TagProp;
             "sl-textarea": TextAreaProp;
             "sl-tooltip": TooltipProp;
-            'sl-tree':TreeProp
-            'sl-tree-item':TreeItemProp
+            "sl-tree": TreeProp;
+            "sl-tree-item": TreeItemProp;
         }
     }
 }

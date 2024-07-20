@@ -1,7 +1,3 @@
-| component | prop  | event |
-| --------- | ----- | ----- |
-| - [x]     | - [x] | - [x] |
+# shoelace preact
 
----
-
-- [x]
+you can use in fresh just sholace declation files
