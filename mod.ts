@@ -35,7 +35,7 @@ export { SlSkeleton } from "./components/Skeleton.tsx";
 export { SlSpinner } from "./components/Spinner.tsx";
 export { SlSplitPanel } from "./components/SplitPanel.tsx";
 export { SlSwitch } from "./components/Switch.tsx";
-export { SlTab, SlTabGroup } from "./components/Tab.tsx";
+export { SlTab, SlTabGroup,SlTabPanel } from "./components/Tab.tsx";
 export { SlTag } from "./components/Tag.tsx";
 export { SlTextarea } from "./components/Textarea.tsx";
 export { SlTooltip } from "./components/Tooltip.tsx";

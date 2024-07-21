@@ -316,115 +316,115 @@ type DropdownProp =
     & Childrenable
     & Sizeable;
 
-type InputProp =
-    & {
-        /**	The type of input. Works the same as a native <input> element, but only a subset of types are supported. Defaults to text.		'date' | 'datetime-local' | 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'time' | 'url'	'text' */
-        type?:
-            | "date"
-            | "datetime-local"
-            | "email"
-            | "number"
-            | "password"
-            | "search"
-            | "tel"
-            | "text"
-            | "time"
-            | "url";
-        /**The name of the input, submitted as a name/value pair with form data.		string	'' */
-        name?: string;
-        /**	The current value of the input, submitted as a name/value pair with form data.		string	'' */
-        value?: string;
-        /**	The default value of the form control. Primarily used for resetting the form control.		string	'' */
-        defaultValue?: string;
+export type SlInputProp = {
+    /**	The type of input. Works the same as a native <input> element, but only a subset of types are supported. Defaults to text.		'date' | 'datetime-local' | 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'time' | 'url'	'text' */
+    type?:
+        | "date"
+        | "datetime-local"
+        | "email"
+        | "number"
+        | "password"
+        | "search"
+        | "tel"
+        | "text"
+        | "time"
+        | "url";
+    /**The name of the input, submitted as a name/value pair with form data.		string	'' */
+    name?: string;
+    /**	The current value of the input, submitted as a name/value pair with form data.		string	'' */
+    value?: string;
+    /**	The default value of the form control. Primarily used for resetting the form control.		string	'' */
+    defaultValue?: string;
+    onSlChange:(e)=>void
+    /**	Draws a filled input.		boolean	false */
+    filled?: boolean;
+    /**Draws a pill-style input with rounded edges.		boolean	false */
+    pill?: boolean;
+    /**The input’s label. If you need to display HTML, use the label slot instead.		string	'' */
+    label?: string;
+    /**help-text	The input’s help text. If you need to display HTML, use the help-text slot instead.		string	'' */
+    helpText?: string;
 
-        /**	Draws a filled input.		boolean	false */
-        filled?: boolean;
-        /**Draws a pill-style input with rounded edges.		boolean	false */
-        pill?: boolean;
-        /**The input’s label. If you need to display HTML, use the label slot instead.		string	'' */
-        label?: string;
-        /**help-text	The input’s help text. If you need to display HTML, use the help-text slot instead.		string	'' */
-        helpText?: string;
+    /**	Adds a clear button when the input is not empty.		boolean	false */
+    clearable?: boolean;
+    /**	Disables the input.		boolean	false */
+    disabled?: boolean;
+    /**	Placeholder text to show as a hint when the input is empty.		string	'' */
+    placeholder?: string;
+    /**	Makes the input readonly.		boolean	false */
+    readonly?: boolean;
+    /**password-toggle	Adds a button to toggle the password’s visibility. Only applies to password types.		boolean	false */
+    passwordToggle?: boolean;
 
-        /**	Adds a clear button when the input is not empty.		boolean	false */
-        clearable?: boolean;
-        /**	Disables the input.		boolean	false */
-        disabled?: boolean;
-        /**	Placeholder text to show as a hint when the input is empty.		string	'' */
-        placeholder?: string;
-        /**	Makes the input readonly.		boolean	false */
-        readonly?: boolean;
-        /**password-toggle	Adds a button to toggle the password’s visibility. Only applies to password types.		boolean	false */
-        passwordToggle?: boolean;
+    /**password-visible	Determines whether or not the password is currently visible. Only applies to password input types.		boolean	false */
+    passwordVisible?: boolean;
 
-        /**password-visible	Determines whether or not the password is currently visible. Only applies to password input types.		boolean	false */
-        passwordVisible?: boolean;
+    /**no-spin-buttons	Hides the browser’s built-in increment/decrement spin buttons for number inputs.		boolean	false */
+    noSpinButtons?: boolean;
 
-        /**no-spin-buttons	Hides the browser’s built-in increment/decrement spin buttons for number inputs.		boolean	false */
-        noSpinButtons?: boolean;
-
-        /**	By default, form controls are associated with the nearest containing <form> element. This attribute allows you to place the form control outside of a form and associate it with the form that has this id. The form must be in the same document or shadow root for this to work. */
-        form?: string;
-        /**	Makes the input a required field.	 */
-        required?: boolean;
-        /**	A regular expression pattern to validate input against.		 */
-        pattern?: string;
-        /**	The minimum length of input that will be considered valid.	 */
-        minlength?: number;
-        /**The maximum length of input that will be considered valid. */
-        maxlength?: number;
-        /**	The input’s minimum value. Only applies to date and number input types.		 */
-        min?: number | string;
-        /**The input’s maximum value. Only applies to date and number input types. */
-        max?: number | string;
-        /**Specifies the granularity that the value must adhere to, or the special value any which means no stepping is implied, allowing any numeric value. Only applies to date and number input types. */
-        step?: number | "any";
-        /**Controls whether and how text input is automatically capitalized as it is entered by the user.		 */
-        autocapitalize?:
-            | "off"
-            | "none"
-            | "on"
-            | "sentences"
-            | "words"
-            | "characters";
-        /**	Indicates whether the browser’s autocorrect feature is on or off. */
-        autocorrect?: "off" | "on";
-        /**	Specifies what permission the browser has to provide assistance in filling out form field values. Refer to this page on MDN for available values.		 */
-        autocomplete?: string;
-        /**Indicates that the input should receive focus on page load.		 */
-        autofocus?: boolean;
-        /**	Used to customize the label or icon of the Enter key on virtual keyboards.		 */
-        enterkeyhint?:
-            | "enter"
-            | "done"
-            | "go"
-            | "next"
-            | "previous"
-            | "search"
-            | "send";
-        /**Enables spell checking on the input.		boolean	true */
-        spellcheck?: boolean;
-        /**Tells the browser what type of data will be entered by the user, allowing it to display the appropriate virtual keyboard on supportive devices.			- */
-        inputmode?:
-            | "none"
-            | "text"
-            | "decimal"
-            | "numeric"
-            | "tel"
-            | "search"
-            | "email"
-            | "url";
-        /**	Gets or sets the current value as a Date object. Returns null if the value can’t be converted. This will use the native <input type="{{type}}"> implementation and may result in an error.		-	- */
-        valueAsDate?: boolean;
-        /**	Gets or sets the current value as a number. Returns NaN if the value can’t be converted.		-	- */
-        valueAsNumber?: boolean;
-        /**	Gets the validity state object		-	- */
-        validity?: boolean;
-        /**	Gets the validation message		 */
-        validationMessage?: string;
-    }
-    & Sizeable
-    & Childrenable;
+    /**	By default, form controls are associated with the nearest containing <form> element. This attribute allows you to place the form control outside of a form and associate it with the form that has this id. The form must be in the same document or shadow root for this to work. */
+    form?: string;
+    /**	Makes the input a required field.	 */
+    required?: boolean;
+    /**	A regular expression pattern to validate input against.		 */
+    pattern?: string;
+    /**	The minimum length of input that will be considered valid.	 */
+    minlength?: number;
+    /**The maximum length of input that will be considered valid. */
+    maxlength?: number;
+    /**	The input’s minimum value. Only applies to date and number input types.		 */
+    min?: number | string;
+    /**The input’s maximum value. Only applies to date and number input types. */
+    max?: number | string;
+    /**Specifies the granularity that the value must adhere to, or the special value any which means no stepping is implied, allowing any numeric value. Only applies to date and number input types. */
+    step?: number | "any";
+    /**Controls whether and how text input is automatically capitalized as it is entered by the user.		 */
+    autocapitalize?:
+        | "off"
+        | "none"
+        | "on"
+        | "sentences"
+        | "words"
+        | "characters";
+    /**	Indicates whether the browser’s autocorrect feature is on or off. */
+    autocorrect?: "off" | "on";
+    /**	Specifies what permission the browser has to provide assistance in filling out form field values. Refer to this page on MDN for available values.		 */
+    autocomplete?: string;
+    /**Indicates that the input should receive focus on page load.		 */
+    autofocus?: boolean;
+    /**	Used to customize the label or icon of the Enter key on virtual keyboards.		 */
+    enterkeyhint?:
+        | "enter"
+        | "done"
+        | "go"
+        | "next"
+        | "previous"
+        | "search"
+        | "send";
+    /**Enables spell checking on the input.		boolean	true */
+    spellcheck?: boolean;
+    /**Tells the browser what type of data will be entered by the user, allowing it to display the appropriate virtual keyboard on supportive devices.			- */
+    inputmode?:
+        | "none"
+        | "text"
+        | "decimal"
+        | "numeric"
+        | "tel"
+        | "search"
+        | "email"
+        | "url";
+    /**	Gets or sets the current value as a Date object. Returns null if the value can’t be converted. This will use the native <input type="{{type}}"> implementation and may result in an error.		-	- */
+    valueAsDate?: boolean;
+    /**	Gets or sets the current value as a number. Returns NaN if the value can’t be converted.		-	- */
+    valueAsNumber?: boolean;
+    /**	Gets the validity state object		-	- */
+    validity?: boolean;
+    /**	Gets the validation message		 */
+    validationMessage?: string;
+};
+export type InputProp =
+    | (SlInputProp & Sizeable & Childrenable)
+    | Partial<HTMLInputElement>;
 
 type MenuProp = Childrenable;
 type MenuLabelProp = Childrenable;
@@ -600,7 +600,7 @@ export interface SlQrCodeProp {
     /**The edge radius of each module. Must be between 0 and 0.5.		number	0 */
     radius?: number;
 }
-type QrCodeProp = SlQrCodeProp & Sizeable&Childrenable;
+type QrCodeProp = SlQrCodeProp & Sizeable & Childrenable;
 
 export interface SlRadioProp {
     /**The radio’s value. When selected, the radio group will receive this value.		 */
@@ -1010,7 +1010,6 @@ export type {
     DropdownProp,
     IconButtonProp,
     IconProp,
-    InputProp,
     MenuItemProp,
     MenuLabelProp,
     MenuProp,
